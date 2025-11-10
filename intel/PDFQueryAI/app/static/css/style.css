@@ -1,0 +1,583 @@
+/* Root Variables */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --highlight-color: #003d7a;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+    --card-background: #fff;
+    --border-color: #ddd;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition-duration: 0.3s;
+}
+
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #0056b3;
+    margin-bottom: 20px;
+}
+
+.title-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.ai-powered {
+    position: absolute;
+    top: 100%;
+    left: 101%;
+    transform: translateX(-50%);
+    font-weight: normal;
+    color: #FFFFFF;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-top: -10px;
+    white-space: nowrap;
+}
+
+header h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .ai-powered {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        white-space: normal; /* Allow text to wrap */
+        display: block;
+        text-align: center;
+    }
+
+    .title-wrapper {
+        text-align: center;
+    }
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--secondary-color);
+    padding: 10px 0;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and links */
+}
+
+.navbar-logo {
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.header-image {
+    width: 70px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between the image and text */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 15px; /* Space between nav links */
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.nav-link:hover {
+    background-color: var(--highlight-color);
+    color: #ffd700;
+}
+
+/* Card Styles */
+.card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Section Styles */
+.section-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.section {
+    flex: 1;
+    min-width: calc(50% - 20px);
+}
+
+h2 {
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+}
+
+button:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Input Styles */
+input[type="file"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+/* List Styles */
+ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style-position: inside;
+}
+
+li {
+    background: var(--card-background);
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+/* Container for response and resize handle */
+.response-container {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Response Section */
+.response {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: #fff;
+    height: 150px;
+    max-height: 500px;
+    min-height: 100px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Resize Handle */
+.resize-handle {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: ns-resize;
+    z-index: 10;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--primary-color);
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+/* Spin Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Loading Message */
+.loading-message {
+    font-size: 16px;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Statistics Section */
+.stats {
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Status Messages */
+.status-message {
+    font-size: 16px;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Fade Out Animation */
+.fade-out {
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+
+/* Button Styles (Additional) */
+.view-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
+/* Enhanced Styles for Prompt Container */
+#promptContainer {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+    box-shadow: var(--box-shadow);
+}
+
+#promptContainer p {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Style for the select dropdown */
+#promptType {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    transition: border-color var(--transition-duration) ease;
+}
+
+#promptType:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Container for each PDF item */
+.pdf-item {
+    display: flex;
+    justify-content: space-between; /* Space between content and buttons */
+    align-items: center; /* Align items vertically in the center */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--card-background);
+}
+
+
+
+
+/* Button container to hold buttons */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+/* General button style */
+.button-container .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+}
+
+
+/* General button style */
+.button-container .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Specific button styles */
+.view-button {
+    background-color: #007bff;
+}
+
+.view-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+#pdfList {
+    margin: 20px;
+}
+
+/* Accessibility Improvements */
+:focus {
+    outline: 3px solid var(--highlight-color);
+    outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --highlight-color: #ffd700;
+        --text-color: #f4f4f4;
+        --background-color: #333;
+        --card-background: #444;
+        --border-color: #555;
+    }
+
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    .nav-link, button, .status-message, .loading-message {
+        color: #fff;
+    }
+
+    .card, .response, .stats, .status-message, .loading-message, #promptContainer, .pdf-item {
+        background: var(--card-background);
+        border-color: var(--border-color);
+    }
+
+    input[type="file"], input[type="text"], #promptType {
+        background-color: #555;
+        color: #fff;
+    }
+}
+
+/* Smooth Transitions for Hover and Focus */
+a, button, .nav-link, input[type="file"], input[type="text"], #promptType {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Consistent Spacing and Alignment */
+* {
+    box-sizing: border-box;
+}
+
+.container, .section-group, .button-container, #pdfList {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.section-group, .button-container {
+    justify-content: space-between;
+}
+
+/* Enhancements for Readability */
+body, h1, h2, p, .nav-link, button, input, .status-message, .loading-message {
+    line-height: 1.6;
+    font-weight: normal;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 5px solid #0056b3;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center;
+    }
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.navigation .button {
+    background-color: #6c757d;
+    color: #ffffff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: normal;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.navigation .button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.app-name {
+    font-weight: bold;
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+
+.header-image {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.welcome {
+    font-family: 'Brush Script MT', cursive; /* Example of a handwritten-style font */
+    font-size: 35px; /* Adjust size as needed */
+    color: #ffffff; /* Example color, adjust as needed */
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .pdf-item {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        padding: 15px;
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
+        justify-content: center; /* Center buttons on smaller screens */
+    }
+
+    .button-container .btn {
+        width: 100%; /* Make buttons full width on small screens */
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pdf-item {
+        padding: 10px;
+    }
+
+    .button-container .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
